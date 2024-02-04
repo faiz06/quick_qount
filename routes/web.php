@@ -4,6 +4,7 @@ use App\Livewire\Auth\Login;
 use App\Livewire\Dashboard\Dashboard;
 use App\Livewire\Home;
 use App\Livewire\Menu\NamaCalonRt;
+use App\Livewire\Nav;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Login::class);
 Route::get('/home', Home::class);
+Route::get('/nav', Nav::class);
 // Route::delete('home/{id}', [NamaCalonRt::class, 'delete'])->name('calon.delete');

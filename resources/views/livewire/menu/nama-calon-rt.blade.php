@@ -1,12 +1,12 @@
 <div>
     <div class="container mt-5" wire:poll>
         @if ($is_create)
-            <div class="fs-2">Tambah Data</div>
-            <div class="card">
+            <div class="fs-2 mb-3">Tambah Data</div>
+            <div class="card shadow-sm">
                 <div class="card-body">
                     <form action="" wire:submit.prevent="create">
                         <div class="row mb-4 mt-2">
-                            <label for="no_rt" class="col col-sm-2 col-form-label">NAMA CALON</label>
+                            <label for="no_rt" class="col col-sm-2 col-form-label">Nama Calon</label>
                             <div class="col col-sm-10">
                                 <input wire:model="nama_calon" name="no_rt" type="text" class="form-control">
                             </div>
@@ -15,7 +15,7 @@
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         <div class="row mb-4">
-                            <label for="alamat" class="col col-sm-2 col-form-label">NO. URUT</label>
+                            <label for="alamat" class="col col-sm-2 col-form-label">No Urut</label>
                             <div class="col col-sm-10">
                                 <input wire:model="no_urut" name="alamat" type="text" class="form-control">
                             </div>
@@ -24,12 +24,12 @@
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         <div class="row mb-4">
-                            <label for="alamat" class="col col-sm-2 col-form-label">JENIS KELAMIN</label>
+                            <label for="alamat" class="col col-sm-2 col-form-label">Jenis Kelamin</label>
                             <div class="col col-sm-10">
                                 <select wire:model="jenis_kelamin" class="text-center form-control" id="">
-                                    <option value="">PILIH</option>
-                                    <option value="laki-laki">LAKI-LAKI</option>
-                                    <option value="perempuan">PEREMPUAN</option>
+                                    <option value="">Pilih</option>
+                                    <option value="laki-laki">Laki-laki</option>
+                                    <option value="perempuan">Perempuan</option>
                                 </select>
                             </div>
                         </div>
@@ -37,13 +37,13 @@
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         <div class="row mb-4">
-                            <label for="alamat" class="col col-sm-2 col-form-label">KETERANGAN</label>
+                            <label for="alamat" class="col col-sm-2 col-form-label">Keterangan</label>
                             {{-- <div class="col col-sm-10">
                                 <input wire:model="keterangan" name="alamat" type="text" class="form-control">
                             </div> --}}
                             <div class="col col-sm-10">
                                 <select wire:model="keterangan" class="text-center form-control" id="">
-                                    <option value="">PILIH</option>
+                                    <option value="">Pilih</option>
                                     @foreach ($datarts as $datart)
                                         <option value="{{ $datart->no_rt }}">Rt. {{ $datart->no_rt }}</option>
                                     @endforeach
@@ -55,18 +55,18 @@
                         @enderror
                         <div class="text-end mt-3">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <div wire:click="onCreate" class="btn btn-secondary">Batal</div>
+                            <div wire:click="onCreate" class="btn btn-light">Batal</div>
                         </div>
                     </form>
                 </div>
             </div>
         @elseif ($is_update)
-            <div class="fs-2">Edit Data</div>
-            <div class="card">
+            <div class="fs-2 mb-3">Edit Data</div>
+            <div class="card shadow-sm">
                 <div class="card-body">
                     <form action="" wire:submit.prevent="update">
                         <div class="row mb-4 mt-2">
-                            <label for="no_rt" class="col col-sm-2 col-form-label">NAMA CALON</label>
+                            <label for="no_rt" class="col col-sm-2 col-form-label">Nama Calon</label>
                             <div class="col col-sm-10">
                                 <input wire:model="nama_calon" name="no_rt" type="text" class="form-control">
                             </div>
@@ -75,7 +75,7 @@
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         <div class="row mb-4">
-                            <label for="alamat" class="col col-sm-2 col-form-label">NO. URUT</label>
+                            <label for="alamat" class="col col-sm-2 col-form-label">No Urut</label>
                             <div class="col col-sm-10">
                                 <input wire:model="no_urut" name="alamat" type="text" class="form-control">
                             </div>
@@ -84,12 +84,12 @@
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         <div class="row mb-4">
-                            <label for="alamat" class="col col-sm-2 col-form-label">JENIS KELAMIN</label>
+                            <label for="alamat" class="col col-sm-2 col-form-label">Jenis Kelamin</label>
                             <div class="col col-sm-10">
                                 <select wire:model="jenis_kelamin" class="text-center form-control" id="">
-                                    <option value="">PILIH</option>
-                                    <option value="laki-laki">LAKI-LAKI</option>
-                                    <option value="perempuan">PEREMPUAN</option>
+                                    <option value="">Pilih</option>
+                                    <option value="laki-laki">Laki-laki</option>
+                                    <option value="perempuan">Perempuan</option>
                                 </select>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         <div class="row mb-4">
-                            <label for="alamat" class="col col-sm-2 col-form-label">KETERANGAN</label>
+                            <label for="alamat" class="col col-sm-2 col-form-label">Keterangan</label>
                             {{-- <div class="col col-sm-10">
                                 <input wire:model="keterangan" name="alamat" type="text" class="form-control">
                             </div> --}}
@@ -105,7 +105,7 @@
                                 <select wire:model="keterangan" class="text-center form-control" id="">
                                     <option value="">PILIH</option>
                                     @foreach ($datarts as $datart)
-                                        <option value="{{ $datart->no_rt }}">Rt. {{ $datart->no_rt }}</option>
+                                        <option value="{{ $datart->no_rt }}">RT. {{ $datart->no_rt }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -115,16 +115,16 @@
                         @enderror
                         <div class="text-end mt-3">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <div wire:click="onUpdate('{{ $this->id }}')" class="btn btn-secondary">Batal</div>
+                            <div wire:click="onUpdate('{{ $this->id }}')" class="btn btn-light">Batal</div>
                         </div>
                     </form>
                 </div>
             </div>
         @else
-            <div class="card mt-5">
+            <div class="card mt-5 shadow-sm">
                 <div class="card-header">
                     <div class="text-end">
-                        <div wire:click="onCreate" class="btn btn-primary btn-sm">Tambah</div>
+                        <div wire:click="onCreate" class="btn btn-primary">Tambah</div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -147,8 +147,8 @@
                                         <td>{{ $data->jenis_kelamin ?? '-' }}</td>
                                         <td>Rt. {{ $data->keterangan ?? '-' }}</td>
                                         <td>
-                                            <div wire:click="onUpdate('{{ $data->id }}')" class="btn btn-warning btn-sm">Edit</div>
-                                            <div wire:click="delete('{{ $data->id }}')" class="btn btn-danger btn-sm">Delete</div>
+                                            <div wire:click="onUpdate('{{ $data->id }}')" class="btn btn-primary bi bi-pencil-square"></div>
+                                            <div wire:click="delete('{{ $data->id }}')" class="btn btn-danger bi bi-trash-fill"></div>
                                         </td>
                                     </tr>
                                 @empty
