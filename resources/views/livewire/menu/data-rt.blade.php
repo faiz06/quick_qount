@@ -2,7 +2,7 @@
     <div class="container mt-5" wire:poll>
         @if ($create)
             <div class="fs-2 mb-3">Tambah Data</div>
-            <div class="card shadow-sm">
+            <div class="card shadow-sm rounded-3">
                 <div class="card-body">
                     <form action="" wire:submit.prevent="save">
                         <div class="row mb-4 mt-2">
@@ -32,7 +32,7 @@
             </div>
         @elseif ($edit)
         <div class="fs-2 mb-3">Edit Data</div>
-        <div class="card shadow-sm">
+        <div class="card shadow-sm rounded-3">
             <div class="card-body">
                 <form action="" wire:submit.prevent="editData">
                     <div class="row mb-4 mt-2">
@@ -61,7 +61,7 @@
             </div>
         </div>
         @else
-        <div class="card shadow-sm">
+        <div class="card shadow-sm rounded-3">
             <div class="card-header">
                 <div class="text-end">
                     <div wire:click="isCreate" class="btn btn-primary">Tambah</div>

@@ -20,5 +20,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Login::class);
 Route::get('/home', Home::class);
-Route::get('/nav', Nav::class);
 // Route::delete('home/{id}', [NamaCalonRt::class, 'delete'])->name('calon.delete');

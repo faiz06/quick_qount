@@ -2,7 +2,7 @@
     <div class="container mt-5" wire:poll>
         @if ($is_create)
             <div class="fs-2 mb-3">Tambah Data</div>
-            <div class="card">
+            <div class="card shadow-sm rounded-3">
                 <div class="card-body">
                     <form action="" wire:submit.prevent="create">
                         <div class="row mb-4">
@@ -89,7 +89,7 @@
                 </div>
             </div>
         @else
-            <div class="card mt-5 shadow-sm">
+            <div class="card mt-5 shadow-sm rounded-3">
                 <div class="card-header">
                     <div class="text-end">
                         <div wire:click="onCreate" class="btn btn-primary">Tambah</div>

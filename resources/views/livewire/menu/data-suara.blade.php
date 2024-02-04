@@ -1,7 +1,7 @@
 <div>
     <div class="container mt-5" wire:poll>
         @if ($is_create)
-            <div class="card mt-5 shadow-sm">
+            <div class="card mt-5 shadow-sm rounded-3">
                 <div class="card-body">
                     <form wire:submit.prevent="create">
                         <div class="row">
