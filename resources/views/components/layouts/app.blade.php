@@ -21,7 +21,7 @@
 
         {{-- sweetalert2 --}}
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        
+
           {{-- Custom styles for this template --}}
         {{-- <style>
             .bd-placeholder-img {

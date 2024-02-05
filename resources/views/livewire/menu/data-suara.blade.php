@@ -21,13 +21,13 @@
                             <label for="" class="col col-9 col-form-label text-center">Jumlah Suara</label>
                         </div>
                         @php
-                        // $datasuara = [];
                         $n = 1
                         @endphp
                         @foreach ($isdata as $data)
                             @php
                             $n++;
-                            $this->idcalon[] = $data->no_urut;
+                            $this->nocalon[] = $data->no_urut;
+                            $this->idcalon[] = $data->id;
                             @endphp
 
                             <div class="row mt-2">
@@ -41,8 +41,64 @@
                     </form>
                 </div>
             </div>
+        @elseif ($is_update)
+            <div class="card">
+                <div class="card-body">
+                    <form wire:submit.prevent="update">
+                        <div class="row">
+                            <label class="col col-3 col-form-label">NO RT</label>
+                            <div class="col col-9">
+                                <input wire:model="no_rt" disabled type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col col-3 col-form-label">NO URUT</label>
+                            <div class="col col-9">
+                                <input wire:model="no_urut" disabled type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col col-3 col-form-label">JUMLAH SUARA</label>
+                            <div class="col col-9">
+                                <input wire:model="jumlah_suara" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
+                        <div wire:click="onUpdate({{ $this->id }})" type="button" class="btn btn-secondary btn-sm">Batal</div>
+                    </form>
+                </div>
+            </div>
         @else
-
+            <div class="card">
+                <div class="card-header">
+                    <div wire:click="onCreate" class="btn btn-primary btn-sm">Tambah</div>
+                </div>
+                <div class="card-body">
+                    <table class="table responsive">
+                        <thead>
+                            <tr>
+                                <th>NO RT</th>
+                                <th>NO URUT</th>
+                                <th>JUMLAH SUARA</th>
+                                <th>AKSI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($datasuaras as $data)
+                            <tr>
+                                <td>{{ $data->no_rt }}</td>
+                                <td>{{ $data->no_urut }}</td>
+                                <td>{{ $data->jumlah_suara }}</td>
+                                <td>
+                                    <div wire:click="onUpdate('{{ $data->id }}')" class="btn btn-warning btn-sm">Edit</div>
+                                    <div wire:click="delete('{{ $data->id }}')" class="btn btn-danger btn-sm">Delete</div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         @endif
     </div>
 </div>
