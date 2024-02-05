@@ -1,9 +1,9 @@
 <div>
     <div class="container">
-        <div class="card">
+        <div class="card shadow-sm rounded-3">
             <div class="card-body">
                 <div class="card-title text-center">
-                    REKAP DATA SUARA
+                    Rekap Data Suara
                 </div>
                 <div class="card-text">
                     @foreach ($datas as $data)
@@ -11,10 +11,10 @@
                     <table class="table table-responsive table-bordered">
                         <thead class="text-center">
                             <tr>
-                                <th>NAMA CALON RT. {{ $data->keterangan }}</th>
-                                <th>NO URUT</th>
-                                <th>PEROLEHAN SUARA</th>
-                                <th>CHART</th>
+                                <th>Nama Calon RT. {{ $data->keterangan }}</th>
+                                <th>No Urut</th>
+                                <th>Perolehan Suara</th>
+                                <th>Chart</th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
@@ -32,4 +32,9 @@
             </div>
         </div>
     </div>
+    <div class="card">
+        <div class="card-body">
+          <div id="chart-demo-pie" class="chart-lg"></div>
+        </div>
+      </div>
 </div>
