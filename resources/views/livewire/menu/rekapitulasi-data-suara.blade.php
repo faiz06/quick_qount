@@ -11,7 +11,7 @@
                     <table class="table table-responsive table-bordered">
                         <thead class="text-center">
                             <tr>
-                                <th>NAMA CALON RT. {{ $data->no_rt }}</th>
+                                <th>NAMA CALON RT. {{ $data->keterangan }}</th>
                                 <th>NO URUT</th>
                                 <th>PEROLEHAN SUARA</th>
                                 <th>CHART</th>
