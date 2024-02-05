@@ -4,6 +4,7 @@ use App\Livewire\Auth\Login;
 use App\Livewire\Dashboard\Dashboard;
 use App\Livewire\Home;
 use App\Livewire\Menu\NamaCalonRt;
+use App\Livewire\Nav;
 use Illuminate\Support\Facades\Route;
 
 /*

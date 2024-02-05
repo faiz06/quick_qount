@@ -13,12 +13,10 @@ class Home extends Component
     public $is_data_suara = false;
     public $is_rekapitulasi_data_suara = false;
 
-
     public function render()
     {
         return view('livewire.home');
     }
-
 
     // dashboard
     public function clickOne()

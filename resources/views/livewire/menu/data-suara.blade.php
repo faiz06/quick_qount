@@ -1,14 +1,14 @@
 <div>
     <div class="container mt-5" wire:poll>
         @if ($is_create)
-            <div class="card mt-5">
+            <div class="card mt-5 shadow-sm rounded-3">
                 <div class="card-body">
                     <form wire:submit.prevent="create">
                         <div class="row">
-                            <label for="" class="col col-3 col-form-label">NO RT</label>
+                            <label for="" class="col col-3 col-form-label">No RT</label>
                             <div class="col col-9">
                                 <select class="form-control text-center" wire:model="keterangan" name="" id="">
-                                    <option value="">PILIH</option>
+                                    <option value="">Pilih</option>
                                     @foreach ($datarts as $data)
                                         <option value="{{ $data->no_rt }}">{{ $data->no_rt }}</option>
                                     @endforeach
@@ -18,7 +18,7 @@
                         <hr>
                         <div class="row mt-3">
                             <div class="col col-3"></div>
-                            <label for="" class="col col-9 col-form-label text-center">JUMLAH SUARA</label>
+                            <label for="" class="col col-9 col-form-label text-center">Jumlah Suara</label>
                         </div>
                         @php
                         // $datasuara = [];
@@ -31,13 +31,13 @@
                             @endphp
 
                             <div class="row mt-2">
-                                <label for="" class="col col-3 col-form-label">NO URUT {{ $data->no_urut }}</label>
+                                <label for="" class="col col-3 col-form-label">No Urut {{ $data->no_urut }}</label>
                                 <div class="col col-9">
                                     <input wire:model="datasuara.{{ $n }}" type="text" class="form-control">
                                 </div>
                             </div>
                         @endforeach
-                        <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </div>
             </div>
