@@ -69,18 +69,18 @@
                 </div>
             </div>
         @else
-            <div class="card">
+            <div class="card shadow-sm rounded-3">
                 <div class="card-header">
-                    <div wire:click="onCreate" class="btn btn-primary btn-sm">Tambah</div>
+                    <div wire:click="onCreate" class="btn btn-primary">Tambah</div>
                 </div>
                 <div class="card-body">
                     <table class="table responsive">
                         <thead>
                             <tr>
-                                <th>NO RT</th>
-                                <th>NO URUT</th>
-                                <th>JUMLAH SUARA</th>
-                                <th>AKSI</th>
+                                <th>No RT</th>
+                                <th>No Urut</th>
+                                <th>Jumlah Suara</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -90,8 +90,8 @@
                                 <td>{{ $data->no_urut }}</td>
                                 <td>{{ $data->jumlah_suara }}</td>
                                 <td>
-                                    <div wire:click="onUpdate('{{ $data->id }}')" class="btn btn-warning btn-sm">Edit</div>
-                                    <div wire:click="delete('{{ $data->id }}')" class="btn btn-danger btn-sm">Delete</div>
+                                    <div wire:click="onUpdate('{{ $data->id }}')" class="btn btn-primary"><i class="bi bi-pencil-square"></i></div>
+                                    <div wire:click="delete('{{ $data->id }}')" class="btn btn-danger"><i class="bi bi-trash-fill"></i></div>
                                 </td>
                             </tr>
                             @endforeach

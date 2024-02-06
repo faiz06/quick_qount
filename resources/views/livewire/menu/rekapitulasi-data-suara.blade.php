@@ -177,4 +177,9 @@
             @endif
         </div>
     </div>
+    <div class="card">
+        <div class="card-body">
+          <div id="chart-demo-pie" class="chart-lg"></div>
+        </div>
+      </div>
 </div>
