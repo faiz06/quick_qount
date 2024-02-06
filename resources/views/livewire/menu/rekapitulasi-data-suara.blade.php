@@ -50,7 +50,7 @@
             {{-- dashboard --}}
             @else
             <div class="container">
-                <div class="card">
+                <div class="card shadow-sm rounded-3">
                     <div class="card-body">
                         <div class="card-title text-center">
                             REKAP DATA SUARA

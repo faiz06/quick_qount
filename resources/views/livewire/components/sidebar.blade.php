@@ -22,7 +22,7 @@
           <a wire:click="clickFive" class="nav-link" href="#"><i class="bi bi-archive-fill me-2 fs-2"></i>Data Suara</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/rekap-data') }}"><i class="bi bi-file-earmark-spreadsheet-fill me-2 fs-2"></i>Rekapitulasi Data Suara</a>
+          <a class="nav-link " href="{{ url('/rekap-data') }}"><i class="bi bi-file-earmark-spreadsheet-fill me-2 fs-2"></i>Rekapitulasi Data Suara</a>
         </li>
       </ul>
       <div class="d-flex ms-4 mb-2">
