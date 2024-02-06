@@ -16,14 +16,14 @@
                             @enderror
                         </div>
                         <div class="form-floating">
-                            <input wire:model="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input wire:model="password" type="{{ $is_visible ? 'password' : 'text' }}" class="form-control" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword">Password</label>
                             @error('password')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="mt-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <input type="checkbox" wire:click="$toggle('is_visible')" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Show Password</label>
                           </div>
                         <button class=" btn btn-primary mt-4" type="submit">Masuk</button>

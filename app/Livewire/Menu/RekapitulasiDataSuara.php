@@ -32,6 +32,13 @@ class RekapitulasiDataSuara extends Component
         return view('livewire.menu.rekapitulasi-data-suara', compact('datas', 'datarekaps'));
     }
 
+     // logout
+     public function logout()
+     {
+         auth()->logout();
+         redirect('/login');
+     }
+
     public function rekapData($id)
     {
         $data = DataSuara::where('calon_rt_id', $id)->first();

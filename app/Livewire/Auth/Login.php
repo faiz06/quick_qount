@@ -10,6 +10,7 @@ class Login extends Component
 {
     public $email;
     public $password;
+    public $is_visible = true;
 
     public function render()
     {
