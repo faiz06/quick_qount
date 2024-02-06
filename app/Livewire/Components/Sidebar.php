@@ -10,4 +10,6 @@ class Sidebar extends Component
     {
         return view('livewire.components.sidebar');
     }
+
+
 }

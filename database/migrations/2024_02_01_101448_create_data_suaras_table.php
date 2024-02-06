@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('data_suaras', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('calon_rt_id')->constrained('calon_rts')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('calon_rt_id')->constrained('calon_rts')->onUpdate('cascade')->onDelete('cascade');
             $table->string('no_rt');
             $table->string('no_urut');
             $table->string('jumlah_suara');

@@ -9,4 +9,9 @@ class DataSuara extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function hasCalon()
+    {
+        return $this->belongsTo(CalonRt::class);
+    }
 }

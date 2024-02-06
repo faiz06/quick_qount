@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\DataSuara;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CalonRt extends Model
 {
@@ -14,5 +15,10 @@ class CalonRt extends Model
     public function pemilih()
     {
         return $this->hasMany(DaftarPemilih::class);
+    }
+
+    public function haveDataSuara()
+    {
+        return $this->hasMany(DataSuara::class);
     }
 }

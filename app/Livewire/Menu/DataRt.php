@@ -60,6 +60,7 @@ class DataRt extends Component
         $rt->alamat = $this->alamat;
         $rt->save();
         $this->create = !$this->create;
+        $this->dispatch('success', ['pesan'=>'Data berhasil dibuat']);
     }
 
     // edit data
@@ -70,6 +71,7 @@ class DataRt extends Component
         $rt->alamat = $this->alamat;
         $rt->save();
         $this->edit = !$this->edit;
+        $this->dispatch('success', ['pesan'=>'Data berhasil diupdate']);
     }
 
     // delete data
@@ -77,6 +79,7 @@ class DataRt extends Component
     {
         $rt = ModelsDataRt::find($id);
         $rt->delete();
+        $this->dispatch('success', ['pesan'=>'Data berhasil di hapus']);
     }
 
     // on create

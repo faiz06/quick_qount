@@ -41,44 +41,27 @@
             <div class="card shadow-sm">
                 <div class="card-body">
                     <form action="" wire:submit.prevent="update">
-                        <div class="row mb-4 mt-2">
-                            <label for="no_rt" class="col col-sm-2 col-form-label">Nama Calon</label>
-                            <div class="col col-sm-10">
-                                <input wire:model="nama_calon" name="no_rt" type="text" class="form-control">
-                            </div>
-                        </div>
-                        @error('nama_calon')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
                         <div class="row mb-4">
-                            <label for="alamat" class="col col-sm-2 col-form-label">No Urut</label>
+                            <label for="no_rt" class="col col-sm-2 col-form-label">NO RT</label>
                             <div class="col col-sm-10">
-                                <input wire:model="no_urut" name="alamat" type="text" class="form-control">
-                            </div>
-                        </div>
-                        @error('no_urut')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                        <div class="row mb-4">
-                            <label for="alamat" class="col col-sm-2 col-form-label">Jenis Kelamin</label>
-                            <div class="col col-sm-10">
-                                <select wire:model="jenis_kelamin" class="text-center form-control" id="">
-                                    <option value="">Pilih</option>
-                                    <option value="laki-laki">Laki-laki</option>
-                                    <option value="perempuan">Perempuan</option>
+                                {{-- <input wire:model="no_urut" name="alamat" type="text" class="form-control"> --}}
+                                <select name="no_rt" wire:model="no_rt" class="form-control text-center">
+                                    @foreach($rt as $r)
+                                        <option value="{{ $r->no_rt }}">{{ $r->no_rt }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
-                        @error('jenis_kelamin')
+                        @error('no_rt')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         <div class="row mb-4">
-                            <label for="alamat" class="col col-sm-2 col-form-label">Keterangan</label>
+                            <label for="jumlah_daftar" class="col col-sm-2 col-form-label">JUMLAH DAFTAR</label>
                             <div class="col col-sm-10">
-                                <input wire:model="keterangan" name="alamat" type="text" class="form-control">
+                                <input type="number" wire:model="jumlah_daftar" name="jumlah_daftar" type="text" class="form-control">
                             </div>
                         </div>
-                        @error('keterangan')
+                        @error('jumlah_daftar')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         <div class="text-end mt-3">
