@@ -19,10 +19,10 @@ class AuthMiddleware
             if (auth()->user()) {
                 return $next($request);
             } else {
-                return redirect('login');
+                return redirect('/');
             }
         } else {
-            return redirect('login');
+            return redirect('/');
         }
     }
 }

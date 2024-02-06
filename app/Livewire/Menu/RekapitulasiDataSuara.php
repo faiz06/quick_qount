@@ -36,7 +36,7 @@ class RekapitulasiDataSuara extends Component
      public function logout()
      {
          auth()->logout();
-         redirect('/login');
+         redirect('/');
      }
 
     public function rekapData($id)

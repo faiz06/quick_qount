@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('login', Login::class);
+Route::get('/', Login::class);
 Route::prefix('/app')->group(function(){
     Route::middleware(['authUser'])->group(
         function(){
