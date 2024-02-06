@@ -121,6 +121,17 @@
                     // , timer: 1500
                 })
             });
+            Livewire.on('error', data => {
+                Swal.fire({
+                    position: 'center',
+                    title: 'Gagal!',
+                    text: data[0].pesan,
+                    icon: 'error',
+                    confirmButtonText: 'oke'
+                    // showConfirmButton: false
+                    // , timer: 1500
+                })
+            });
 
             livewire.on('deletes', data => {
                 Swal.fire({

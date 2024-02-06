@@ -2,14 +2,18 @@
 
 namespace App\Livewire\Dashboard;
 
-use App\Models\CalonRt;
 use App\Models\DataRt;
+use App\Models\CalonRt;
 use Livewire\Component;
+use App\Models\DaftarPemilih;
+use Illuminate\Support\Facades\DB;
 
 class Dashboard extends Component
 {
     public $count;
     public $calon;
+    public $daftar_pemilih;
+    public $pesertas;
     public $is_dashboard = false;
     public $is_datart = false;
     public $is_nama_calonrt = false;
@@ -21,8 +25,15 @@ class Dashboard extends Component
     {
         $this->count = DataRt::with('data_rts')->count();
         $this->calon = CalonRt::with('calon_rts')->count();
-
+        $this->daftar_pemilih = DB::table('daftar_pemilihs')->select('jumlah_daftar')->get();
         return view('livewire.dashboard.dashboard');
+    }
+
+    // logout
+    public function logout()
+    {
+        auth()->logout();
+        redirect('/');
     }
 
     // dashboard

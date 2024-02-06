@@ -38,6 +38,7 @@
                             </div>
                         @endforeach
                         <button type="submit" class="btn btn-primary">Simpan</button>
+                        <div wire:click="onCreate" class="btn btn-scondary">Batal</div>
                     </form>
                 </div>
             </div>

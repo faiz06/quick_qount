@@ -4,6 +4,13 @@
           @include('livewire.components.sidebar')
         </div>
     </aside>
+    {{-- @dd($daftar_pemilih) --}}
+    @php
+        $pesertas = 0;
+        foreach ($daftar_pemilih as $peserta) {
+            $pesertas = $pesertas + $peserta->jumlah_daftar;
+        }
+        @endphp
     <div class="page-wrapper">
         <div class="page-header d-print-none">
             <div class="container-xl">
@@ -89,7 +96,7 @@
                             <div class="card-footer">
                                 <div class="text-center">
                                     <div class="fs-3 fw-bold">
-                                        {{ 0 }}
+                                        {{ $pesertas }}
                                     </div>
                                 </div>
                             </div>

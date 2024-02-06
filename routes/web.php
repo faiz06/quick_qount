@@ -19,8 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Login::class);
-// Route::get('/home', Dashboard::class);
-Route::get('/rekap-data', RekapitulasiDataSuara::class);
-Route::get('/dashboard', Dashboard::class);
-// Route::delete('home/{id}', [NamaCalonRt::class, 'delete'])->name('calon.delete');
+Route::get('login', Login::class);
+Route::prefix('/app')->group(function(){
+    Route::middleware(['authUser'])->group(
+        function(){
+            Route::get('/', Dashboard::class);
+            Route::get('/rekap-data', RekapitulasiDataSuara::class);
+        }
+    );
+});

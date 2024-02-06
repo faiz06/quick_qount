@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-4">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{ url('/dashboard') }}"> <i class="bi bi-house-door-fill me-2 fs-2"></i>Dashboard</a>
+          <a class="nav-link" aria-current="page" href="{{ url('app/') }}"> <i class="bi bi-house-door-fill me-2 fs-2"></i>Dashboard</a>
         </li>
         <li class="nav-item">
           <a wire:click="clickTwo" class="nav-link" href="#"><i class="bi bi-person-lines-fill me-2 fs-2"></i>Data RT</a>
@@ -22,11 +22,11 @@
           <a wire:click="clickFive" class="nav-link" href="#"><i class="bi bi-archive-fill me-2 fs-2"></i>Data Suara</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/rekap-data') }}"><i class="bi bi-file-earmark-spreadsheet-fill me-2 fs-2"></i>Rekapitulasi Data Suara</a>
+          <a class="nav-link" href="{{ url('app/rekap-data') }}"><i class="bi bi-file-earmark-spreadsheet-fill me-2 fs-2"></i>Rekapitulasi Data Suara</a>
         </li>
       </ul>
       <div class="d-flex ms-4 mb-2">
-          <button class="btn text-white bg-primary fw-semibold" type="submit"><i class="bi bi-box-arrow-right me-2 fs-2"></i> Keluar</button>
+          <button wire:click="logout" class="btn text-white bg-primary fw-semibold" type="submit"><i class="bi bi-box-arrow-right me-2 fs-2"></i> Keluar</button>
         </div>
     </div>
 </div>

@@ -83,7 +83,7 @@
                             @php
                                 $suara[] = $data->haveDataSuara[0]->jumlah_suara ?? "0";
                                 $namacalon[] = $data->nama_calon;
-                                $ar[] = $n;
+                                $ar[] = $n ?? 0;
                                 $n++;
                                 $car[] = $this->rekapData($data->id);
                                 $jdaftar[] = $this->daftarPemilih($data->keterangan);

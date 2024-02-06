@@ -20,6 +20,10 @@ class RekapitulasiDataSuara extends Component
     public $cari;
     public $nama;
     public $no;
+    public $ar;
+    public $namacalon;
+    public $nos;
+    public $jdaftar;
 
     public function render()
     {
