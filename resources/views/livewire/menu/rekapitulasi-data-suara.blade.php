@@ -95,12 +95,14 @@
                                 let suaras = {{ Js::from($suara) }} // jumlah suara
                                 let namacalon = {{ Js::from($namacalon) }} // nama calon
                                 let no = {{ Js::from($nos) }} // no rt
-                                let jf = {{ Js::from($jdaftar) }}
-                                let ctx = [];
+                                let jf = {{ Js::from($jdaftar) }} // untuk perhitungan jumlah daftar
+                                let ctx = []; // untuk mendefinisikan sebagai penanda chart ke-n otomatis
                                 let b = []; // suara
                                 let d = []; // nama calon
-                                let jdaf = []
-                                let hasil = []
+                                let jdaf = [] // jumlah daftar
+                                let hasil = [] // ( -jumlah_pemilih ) + daftar pemilih = golput
+
+                                // membersihkan data undefined
                                 for(x=0;x<jf.length;x++)
                                 {
                                     if(jf[x]!==null)
@@ -110,6 +112,8 @@
                                         jdaf.push("0")
                                     }
                                 }
+
+                                // pemetaan suara dan nama calon
                                 for(i=0; i<=suaras.length-1; i++)
                                 {
                                     let c = [];
@@ -123,10 +127,11 @@
                                             e.push(namacalon[j])
                                         }
                                     }
-                                    b[i]=[c] // suara
-                                    d[i]=[e]
+                                    b[i]=[c] // data suara
+                                    d[i]=[e] // data calon
                                 }
-                                let abc = []
+
+                                // perhitungan hasil
                                 for(let i=0;i<b.length;i++)
                                 {
                                     let jum = 0
@@ -138,15 +143,17 @@
 
                                 }
 
+                                // penambahan data golput
                                 for(k=0;k<=jdaf.length-1;k++)
                                 {
                                     b[k][0].push(jdaf[k] - hasil[k])
                                     d[k][0].push('golput')
                                 }
 
-                                console.log(hasil)
+                                // chart
                                 for(i=0;i<=a.length;i++)
                                 {
+                                    // cek data pemilih
                                     if(b[i][0][i]>0){
                                         ctx[i] = document.getElementById('myChart'+i);
                                         new Chart(ctx[i], {
@@ -177,9 +184,4 @@
             @endif
         </div>
     </div>
-    <div class="card">
-        <div class="card-body">
-          <div id="chart-demo-pie" class="chart-lg"></div>
-        </div>
-      </div>
 </div>
