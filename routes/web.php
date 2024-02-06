@@ -4,6 +4,7 @@ use App\Livewire\Auth\Login;
 use App\Livewire\Dashboard\Dashboard;
 use App\Livewire\Home;
 use App\Livewire\Menu\NamaCalonRt;
+use App\Livewire\Menu\RekapitulasiDataSuara;
 use App\Livewire\Nav;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Login::class);
-Route::get('/home', Home::class);
+// Route::get('/home', Dashboard::class);
+Route::get('/rekap-data', RekapitulasiDataSuara::class);
+Route::get('/dashboard', Dashboard::class);
 // Route::delete('home/{id}', [NamaCalonRt::class, 'delete'])->name('calon.delete');
