@@ -2,10 +2,11 @@
 
 namespace App\Livewire\Menu;
 
+use App\Models\DataRt;
 use App\Models\CalonRt;
-use App\Models\DaftarPemilih;
-use App\Models\DataSuara;
 use Livewire\Component;
+use App\Models\DataSuara;
+use App\Models\DaftarPemilih;
 
 class RekapitulasiDataSuara extends Component
 {
@@ -24,12 +25,16 @@ class RekapitulasiDataSuara extends Component
     public $namacalon;
     public $nos;
     public $jdaftar;
+    public $srt = [];
+    public $sarray = [];
 
     public function render()
     {
         $datas = CalonRt::oldest()->get();
+        $rt = DataRt::oldest()->get();
+        $datas1 = CalonRt::oldest()->get();
         $datarekaps = DataSuara::oldest()->get();
-        return view('livewire.menu.rekapitulasi-data-suara', compact('datas', 'datarekaps'));
+        return view('livewire.menu.rekapitulasi-data-suara', compact('datas', 'datarekaps', 'datas1', 'rt'));
     }
 
      // logout

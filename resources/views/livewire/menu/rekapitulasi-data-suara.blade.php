@@ -56,41 +56,91 @@
                             REKAP DATA SUARA
                         </div>
                         <div class="card-text">
-                            @foreach ($datas as $data)
+                            @foreach ($rt as $r)
                             <hr>
                             <table class="table table-responsive table-bordered">
                                 <thead class="text-center">
                                     <tr>
-                                        <th>NAMA CALON RT. {{ $data->keterangan }}</th>
-                                        <th>NO URUT</th>
+                                        <th>CALON RT. {{ $r->no_rt }}</th>
+                                        {{-- <th>NO URUT</th>
                                         <th>PEROLEHAN SUARA</th>
-                                        <th>CHART</th>
+                                        <th>CHART</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
                                     <tr>
-                                        <td>{{ $data->nama_calon ?? "-" }}</td>
-                                        <td>{{ $data->no_urut ?? "-" }}</td>
-                                        <td>{{ $data->haveDataSuara[0]->jumlah_suara ?? "-" }}</td>
                                         <td>
-                                            <div class="col col-7">
-                                                <canvas id="myChart{{ $n }}"></canvas>
-                                            </div>
+                                            <table class="table table-responsive table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>NAMA CALON</td>
+                                                        <td>PEROLEHAN SUARA</td>
+                                                        <td>NO URUT</td>
+                                                        {{-- <td></td> --}}
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {{-- @dd($datas1[0]) --}}
+                                                    @php
+                                                        $number = 0;
+                                                        $srt = []; // simpan no rt
+                                                    @endphp
+                                                    @foreach ($datas1 as $data1)
+                                                        @if($number<$datas1->count())
+                                                        @if($r->no_rt == $data1->keterangan)
+                                                        <tr>
+                                                            <td>{{ $data1->nama_calon ?? "-" }}</td>
+                                                            <td>{{ $data1->no_urut ?? "-" }}</td>
+                                                            <td>{{ $data1->haveDataSuara[0]->jumlah_suara ?? "-" }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $srt[] = $data1->keterangan;
+                                                            $suara[] = $data1->haveDataSuara[0]->jumlah_suara ?? "0";
+                                                            $namacalon[] = $data1->nama_calon;
+                                                            $ar[] = $n ?? 0;
+                                                            $n++;
+                                                            $car[] = $this->rekapData($data1->id);
+                                                            $jdaftar[] = $this->daftarPemilih($data1->keterangan);
+                                                            $nos[] = $data1->keterangan;
+                                                        @endphp
+                                                        @php
+                                                        $number++;
+                                                        @endphp
+                                                        @endif
+                                                        @endif
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
                                         </td>
-                                    </tr>
+                                        <td>
+                                            @foreach ($datas1 as $data1)
+                                            @if($data1->keterangan == $r->no_rt)
+                                                @php
+                                                    $sarray[] = $data1->keterangan;
+                                                @endphp
+                                                <div class="col col-7">
+                                                    <canvas id="myChart{{ $data1->keterangan }}"></canvas>
+                                                    {{-- @dd($n) --}}
+                                                </div>
+                                            @endif
+                                            @endforeach
+                                        </td>
+                                        </tr>
                                 </tbody>
                             </table>
                             @php
-                                $suara[] = $data->haveDataSuara[0]->jumlah_suara ?? "0";
-                                $namacalon[] = $data->nama_calon;
-                                $ar[] = $n ?? 0;
-                                $n++;
-                                $car[] = $this->rekapData($data->id);
-                                $jdaftar[] = $this->daftarPemilih($data->keterangan);
-                                $nos[] = $data->keterangan;
+                                // $suara[] = $data->haveDataSuara[0]->jumlah_suara ?? "0";
+                                // $namacalon[] = $data->nama_calon;
+                                // $ar[] = $n ?? 0;
+                                // $n++;
+                                // $car[] = $this->rekapData($data->id);
+                                // $jdaftar[] = $this->daftarPemilih($data->keterangan);
+                                // $nos[] = $data->keterangan;
                             @endphp
                             @endforeach
                             <script>
+                                let test = {{ Js::from($datas1) }}
+                                // console.log(test)
                                 let a = {{ Js::from($ar) }} // document id
                                 let suaras = {{ Js::from($suara) }} // jumlah suara
                                 let namacalon = {{ Js::from($namacalon) }} // nama calon
@@ -150,12 +200,14 @@
                                     d[k][0].push('golput')
                                 }
 
+                                let datart = {{ Js::from($sarray) }}// data rt untuk disandingkan ke chart
+                                console.log(datart)
                                 // chart
                                 for(i=0;i<=a.length;i++)
                                 {
                                     // cek data pemilih
                                     if(b[i][0][i]>0){
-                                        ctx[i] = document.getElementById('myChart'+i);
+                                        ctx[i] = document.getElementById('myChart'+datart[i]);
                                         new Chart(ctx[i], {
                                           type: 'pie',
                                           data: {
