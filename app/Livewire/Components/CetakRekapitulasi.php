@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Menu;
+namespace App\Livewire\Components;
 
 use App\Models\DataRt;
 use App\Models\CalonRt;
@@ -8,7 +8,7 @@ use Livewire\Component;
 use App\Models\DataSuara;
 use App\Models\DaftarPemilih;
 
-class RekapitulasiDataSuara extends Component
+class CetakRekapitulasi extends Component
 {
     public $is_dashboard = false;
     public $is_datart = false;
@@ -35,13 +35,14 @@ class RekapitulasiDataSuara extends Component
         $rt = DataRt::oldest()->get();
         $datas1 = CalonRt::oldest()->get();
         $datarekaps = DataSuara::oldest()->get();
-        return view('livewire.menu.rekapitulasi-data-suara', compact('datas', 'datarekaps', 'datas1', 'rt'));
+        return view('livewire.components.cetak-rekapitulasi', compact('datas', 'datarekaps', 'datas1', 'rt'));
     }
+
 
     // cetak
     public function cetak()
     {
-        redirect('app/cetak');
+        redirect('cetak');
     }
 
      // logout

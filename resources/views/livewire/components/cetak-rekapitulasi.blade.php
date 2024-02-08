@@ -1,16 +1,8 @@
 <div>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script> --}}
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
 
-    <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark bg-primary fw-semibold fs-3 shadow">
-        <div class="container-fluid">
-          @include('livewire.components.sidebar')
-        </div>
-    </aside>
     <div class="page-wrapper">
         <div class="page-header d-print-none">
             <div class="container-xl">
@@ -61,8 +53,7 @@
                             REKAP DATA SUARA
                         </div>
                         <div class="card-text">
-                            <hr>
-                            <a class="btn btn-primary" href="{{ url('app/cetak') }}" target="_blank">CETAK</a>
+                            {{-- <hr> --}}
                             {{-- <div class="btn btn-primary">CETAK</div> --}}
                             @foreach ($rt as $r)
                             <hr>
@@ -76,17 +67,15 @@
                                 <tbody class="text-center">
                                     <tr>
                                         <td>
-                                            <table class="table table-responsive table-bordered">
+                                            <table class="table table-responsive table-bordered table-sm">
                                                 <thead>
                                                     <tr>
                                                         <td>NAMA CALON</td>
                                                         <td>NO URUT</td>
                                                         <td>PEROLEHAN SUARA</td>
-                                                        {{-- <td></td> --}}
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {{-- @dd($datas1[0]) --}}
                                                     @php
                                                         $number = 0;
                                                         $srt = []; // simpan no rt
@@ -118,41 +107,27 @@
                                                 </tbody>
                                             </table>
                                         </td>
-                                        <td>
-                                            {{-- @foreach ($datas1 as $data1) --}}
-                                            @if($persamaan<count($nos))
-                                                @if($nos[$persamaan] == $r->no_rt)
-                                                @php
-                                                    $sarray[] = $r->no_rt;
-                                                @endphp
-                                                    <div class="col">
-                                                        <canvas id="myChart{{ $r->no_rt }}"></canvas>
-                                                    </div>
-                                                    {{-- @php --}}
-                                                        {{-- // return; --}}
-                                                        {{-- @endphp --}}
+                                            <td>
+                                                @if($persamaan<count($nos))
+                                                    @if($nos[$persamaan] == $r->no_rt)
+                                                        @php
+                                                            $sarray[] = $r->no_rt;
+                                                        @endphp
+                                                        <div class="col col-7">
+                                                            <canvas id="myChart{{ $r->no_rt }}"></canvas>
+                                                        </div>
+                                                    @endif
                                                 @endif
-                                            @endif
-                                            {{-- @endforeach --}}
-                                        </td>
+                                            </td>
                                         </tr>
                                 </tbody>
                             </table>
                             @php
-                                // $suara[] = $data->haveDataSuara[0]->jumlah_suara ?? "0";
-                                // $namacalon[] = $data->nama_calon;
-                                // $ar[] = $n ?? 0;
-                                // $n++;
-                                // $car[] = $this->rekapData($data->id);
-                                // $jdaftar[] = $this->daftarPemilih($data->keterangan);
-                                // $nos[] = $data->keterangan;
                                 $persamaan++;
                             @endphp
-
                             @endforeach
                             <script>
                                 let test = {{ Js::from($datas1) }}
-                                // console.log(test)
                                 let a = {{ Js::from($ar) }} // document id
                                 let suaras = {{ Js::from($suara) }} // jumlah suara
                                 let namacalon = {{ Js::from($namacalon) }} // nama calon
@@ -174,7 +149,6 @@
                                         jdaf.push("0")
                                     }
                                 }
-                                // console.log( typeof jf[0].jumlah_daftar);
 
                                 // pemetaan suara dan nama calon
                                 for(i=0; i<=suaras.length-1; i++)
@@ -193,7 +167,6 @@
                                     b[i]=[c] // data suara
                                     d[i]=[e] // data calon
                                 }
-                                // console.log(b);
 
                                 // perhitungan hasil
                                 for(let i=0;i<b.length;i++)
@@ -215,7 +188,6 @@
                                 }
 
                                 let datart = {{ Js::from($sarray) }}// data rt untuk disandingkan ke chart
-                                // console.log(datart)
                                 let warna = [
                                     "#4b77a9",
                                     "#5f255f",
@@ -239,20 +211,12 @@
                                 for(i=0;i<datart.length;i++)
                                 {
                                     console.log(datart[i])
-                                    // console.log(typeof datart[i])
-                                    // if(datart[i]===nos[i]){
-                                    // cek data pemilih
                                     if(b[i][0][i]>0){
                                         let data = [{
                                             data: b[i][0],
                                             borderWidth: 1,
                                             backgroundColor: datawarna,
                                         }];
-                                        // let sum = 0;
-                                        // function myFunc(item){
-                                        //     q3 +=item;
-                                        // }
-                                        // console.log(b[i][0])
                                         let options = {
                                             tooltips: {
                                                 enabled: false
@@ -267,16 +231,7 @@
                                                     formatter: (value, ctx)=>{
                                                         let q1 = ctx.chart.data.datasets[0].data[i]; // [10, 20, 30]
                                                         let q3 = parseInt(jf[i].jumlah_daftar);
-                                                        // console.log(q1);
-                                                        // let q4 = 0;
-                                                        // for(let q3 in q1){
-                                                        //     q4= q4+q3;
-                                                        // }
-                                                        // console.log(q4);
-                                                        // let sum = q1.reduce((a, b)=>a + b);
-                                                        // console.log(sum);
                                                         let q2 = (value * 100 / q3).toFixed(2) + "%";
-                                                        // console.log(q1);
                                                         return q2;
                                                     },
                                                     color: "#ffff",
@@ -285,34 +240,17 @@
 
                                         }
                                         ctx[i] = document.getElementById('myChart'+datart[i]);
-                                        // console.log(ctx[i])
                                         new Chart(ctx[i], {
                                           type: 'pie',
                                           data: {
                                             labels: d[i][0],
                                             datasets: data,
-                                            // datasets: [{
-                                            // //   label: '# of Votes',
-                                            //   data: b[i][0],
-                                            //   borderWidth: 1
-                                            // }]
                                           },
                                           options: options,
-                                        //   options: {
-                                        //     tooltips: {
-                                        //         enabled: false
-                                        //     },
-                                        //     scales: {
-                                        //       y: {
-                                        //         beginAtZero: true
-                                        //       }
-                                        //     },
-
-                                        // },
                                         });
                                     }
-                                // }
                                 }
+                                window.print();
                             </script>
                         </div>
                     </div>

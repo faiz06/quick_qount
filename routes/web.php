@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Auth\Login;
+use App\Livewire\Components\CetakRekapitulasi;
 use App\Livewire\Dashboard\Dashboard;
 use App\Livewire\Home;
 use App\Livewire\Menu\NamaCalonRt;
@@ -25,6 +26,7 @@ Route::prefix('/app')->group(function(){
         function(){
             Route::get('/', Dashboard::class);
             Route::get('/rekap-data', RekapitulasiDataSuara::class);
+            Route::get('/cetak', CetakRekapitulasi::class);
         }
     );
 });
