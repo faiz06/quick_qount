@@ -1,1 +1,1 @@
-# quick_qount
+# quick_count
